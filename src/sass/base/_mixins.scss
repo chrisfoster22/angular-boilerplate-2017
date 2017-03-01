@@ -1,0 +1,13 @@
+@mixin flexbox {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+}
+
+@mixin transition($timing) {
+  -webkit-transition: all #{$timing}s ease-in-out;
+     -moz-transition: all #{$timing}s ease-in-out;
+      -ms-transition: all #{$timing}s ease-in-out;
+       -o-transition: all #{$timing}s ease-in-out;
+}
