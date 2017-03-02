@@ -19,6 +19,6 @@
 		    url: "/portal",
 		    templateUrl: "views/portal.html"
 		})
-	}); 
+	});
 
-}()); 
+}());

@@ -1,7 +1,25 @@
 <div ng-controller="HomeController" class="row">
 	<div class="col-sm-12">
-	  	<p>
-	    	{{message}}
-		</p>
+		<p>{{ message }}</p>
+		Edit your message: <input type="text" ng-model="message">
+
+		<div class="user" ng-repeat="user in users">
+			{{ user.fname }} {{ user.lname }} from {{ user.location }}!
+		</div>
+
+		<form>
+			First Name: <input type="text" ng-model="fname">
+			Last Name: <input type="text" ng-model="lname">
+			Location: <input type="text" ng-model="location">
+
+			<div ng-click="addUser(fname, lname, location)">
+				Add User!
+			</div>
+		</form>
+
+		<div ng-if="fname.length > 3">
+			Your new user: {{fname}} {{lname}} <span ng-if="location">from {{location}}</span>
+		</div>
+
 	</div>
 </div>
