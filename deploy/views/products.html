@@ -1,0 +1,12 @@
+<div ng-controller="ProductsController">
+
+{{ message }}
+	<h2>Welcome to the products page</h2>
+
+	Search: <input ng-model="searchTerm">
+
+	<div class="product" ng-repeat="product in products | filter:searchTerm">
+		{{ product.name }}: {{ product.cost}}
+	</div>
+
+</div>

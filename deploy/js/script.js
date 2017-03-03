@@ -15,9 +15,9 @@
 		    templateUrl: "views/home.html"
 		})
 
-		.state('portal', {
-		    url: "/portal",
-		    templateUrl: "views/portal.html"
+		.state('products', {
+		    url: "/products",
+		    templateUrl: "views/products.html"
 		})
 	});
 
@@ -57,4 +57,36 @@ angular.module("myApp").controller('HomeController', function($scope) {
 
                 $scope.users.push(user);
         }
+});
+
+angular.module("myApp").controller('ProductsController', function($scope, $http, ProductsService) {
+
+    $scope.products;
+    $scope.productsService;
+
+    $scope.$watch('ProductsService.products', function() {
+        $scope.ProductsService = ProductsService;
+        $scope.products = $scope.ProductsService.products;
+    })
+
+});
+
+angular.module("myApp").factory('ProductsService', function($http) {
+
+	var service = {};
+	// service.getProducts = getProducts;
+	getProducts();
+	return service;
+
+	function getProducts() {
+		$http({
+			method: 'GET',
+			url: 'http://localhost:3000/products'
+		}).then(function successCallback(response) {
+		   service.products = response.data;
+		}, function errorCallback(error) {
+			console.log(error)
+		});
+	}
+
 });

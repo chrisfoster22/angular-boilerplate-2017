@@ -15,9 +15,9 @@
 		    templateUrl: "views/home.html"
 		})
 
-		.state('portal', {
-		    url: "/portal",
-		    templateUrl: "views/portal.html"
+		.state('products', {
+		    url: "/products",
+		    templateUrl: "views/products.html"
 		})
 	});
 
